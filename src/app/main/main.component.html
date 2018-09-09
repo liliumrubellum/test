@@ -1,0 +1,46 @@
+<div>
+  オイル：{{config.oil | number}}
+
+  <table>
+    <tbody>
+      <tr *ngFor="let building of config.building">
+        <td>{{building.name}}</td>
+        <td>{{building.effect}}</td>
+        <td class="level" *ngFor="let level of building.levels; let i = index">
+          <div>
+            <input type="checkbox"
+              [checked]="i < building.level"
+              [disabled]="i < building.minLevel"
+              (change)="changeLevel(building.id, i + 1, $event)">
+            <label></label>
+          </div>
+          <div>
+            <span>{{level.value | signedNumber }}{{building.unit}}</span>
+            <span>{{level.oil | number}}</span>
+          </div>
+        </td>
+
+
+      </tr>
+    </tbody>
+  </table>
+  <!-- <ul>
+    <li *ngFor="let building of config.building">
+      <span class="name">{{building.name}}</span>
+      <span class="effect">{{building.effect}}</span>
+      <span *ngFor="let level of building.levels" class="building-level">
+        <div>
+          <input type="checkbox">
+        </div>
+        <div>{{level.value}}</div>
+        <div>{{level.oil}}</div>
+      </span>
+    </li>
+  </ul> -->
+</div>
+<label>投票者
+    <input type="text">
+  </label>
+<button (click)="vote()">
+  投票
+</button>
