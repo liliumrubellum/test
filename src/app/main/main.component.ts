@@ -30,6 +30,7 @@ export class MainComponent implements OnInit {
   }
 
   vote() {
+    console.log('vote');
   }
 
 }

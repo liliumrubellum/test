@@ -4,6 +4,7 @@
 // init project
 var express = require('express');
 var app = express();
+var path = require('path');
 
 // we've started you off with Express,
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
@@ -13,7 +14,7 @@ app.use(express.static('public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/dist/ClanBase/index.html');
+  response.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
 
 // listen for requests :)
